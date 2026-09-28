@@ -1,0 +1,310 @@
+// Interface strings — every key has English, French and Arabic side by side.
+// Use t('key') for text (supports {placeholders}); structured entries (arrays) are read with l(ui[key]).
+
+export const ui = {
+  // ── Navigation ──────────────────────────────────────────────
+  'nav.menu': { en: 'Menu', fr: 'Menu', ar: 'القائمة' },
+  'nav.openMenu': { en: 'Open menu', fr: 'Ouvrir le menu', ar: 'فتح القائمة' },
+  'nav.closeMenu': { en: 'Close menu', fr: 'Fermer le menu', ar: 'إغلاق القائمة' },
+  'nav.home': { en: '{name} — home', fr: '{name} — accueil', ar: '{name} — الرئيسية' },
+  'nav.catalogue': { en: 'Catalogue', fr: 'Catalogue', ar: 'الكتالوج' },
+  'nav.getQuote': { en: 'Get a quote', fr: 'Demander un devis', ar: 'اطلب عرض سعر' },
+  'nav.quote': { en: 'Quote', fr: 'Devis', ar: 'عرض سعر' },
+  'nav.quoteBar': { en: 'Get a quote', fr: 'Devis express', ar: 'اطلب عرض سعر' }, // short: sits beside the centred logo
+  'nav.items': { en: '{n} items in your quote list', fr: '{n} articles dans votre liste de devis', ar: 'عدد العناصر في قائمة عرض السعر: {n}' },
+  'nav.ourProducts': { en: 'Our products', fr: 'Nos produits', ar: 'منتجاتنا' },
+  'nav.explore': { en: 'Explore', fr: 'Explorer', ar: 'استكشف' },
+  'nav.promo.fast': { en: 'Fast', fr: 'Devis', ar: 'عرض' },
+  'nav.promo.quote': { en: 'Quote', fr: 'Express', ar: 'سريع' },
+  'nav.promo.line1': { en: 'Priced in', fr: 'Chiffré en', ar: 'تسعير خلال' },
+  'nav.promo.line2': { en: '24 hours', fr: '24 heures', ar: '24 ساعة' },
+  'lang.label': { en: 'Language', fr: 'Langue', ar: 'اللغة' },
+
+  // ── Common ──────────────────────────────────────────────────
+  'common.requestQuote': { en: 'Request a quote', fr: 'Demander un devis', ar: 'اطلب عرض سعر' },
+  'common.new': { en: 'New', fr: 'Nouveau', ar: 'جديد' },
+  'common.close': { en: 'Close', fr: 'Fermer', ar: 'إغلاق' },
+  'common.home': { en: 'Home', fr: 'Accueil', ar: 'الرئيسية' },
+  'common.brands': { en: 'Brands', fr: 'Marques', ar: 'العلامات' },
+  'common.catalogue': { en: 'Catalogue', fr: 'Catalogue', ar: 'الكتالوج' },
+  'common.breadcrumb': { en: 'Breadcrumb', fr: "Fil d'Ariane", ar: 'مسار التنقل' },
+  'common.viewBrand': { en: 'View brand', fr: 'Voir la marque', ar: 'عرض العلامة' },
+  'common.quoteBtn': { en: 'Quote', fr: 'Devis', ar: 'عرض سعر' },
+  'common.addToList': { en: 'Add {name} to your quote list', fr: 'Ajouter {name} à votre liste de devis', ar: 'أضف {name} إلى قائمة عرض السعر' },
+  'common.references': { en: '{n} references', fr: '{n} références', ar: '{n} مرجع' },
+  'common.discover': { en: 'Discover {name}', fr: 'Découvrir {name}', ar: 'اكتشف {name}' },
+  'qty.label': { en: 'Quantity', fr: 'Quantité', ar: 'الكمية' },
+  'qty.dec': { en: 'Decrease quantity', fr: 'Diminuer la quantité', ar: 'إنقاص الكمية' },
+  'qty.inc': { en: 'Increase quantity', fr: 'Augmenter la quantité', ar: 'زيادة الكمية' },
+
+  'stock.in': { en: 'In stock', fr: 'En stock', ar: 'متوفر' },
+  'stock.low': { en: 'Low stock', fr: 'Stock limité', ar: 'كمية محدودة' },
+  'stock.order': { en: 'On order · 5–7 days', fr: 'Sur commande · 5–7 jours', ar: 'حسب الطلب · 5–7 أيام' },
+
+  // ── Home: hero ──────────────────────────────────────────────
+  'hero.words1': { en: ['Power', 'Supply'], fr: ['Le', 'courant'], ar: ['طاقة', 'موثوقة'] },
+  'hero.words2': { en: ['Built', 'for', 'Pros'], fr: ['des', 'pros'], ar: ['للمحترفين'] },
+  'hero.sr': { en: 'Power supply, built for pros', fr: 'Le courant des pros', ar: 'طاقة موثوقة للمحترفين' },
+  // Plain strings are text, ['word'] is a highlight chip, ['word', 'round'] a rounded chip
+  'hero.desc': {
+    en: ['Official distributor of ', ['Legrand', 'round'], ', ', ['Schneider'], ' & ten more brands — wiring, ', ['protection'], ', ', ['cables', 'round'], ' and ', ['lighting'], ' for every job site.'],
+    fr: ['Distributeur officiel de ', ['Legrand', 'round'], ', ', ['Schneider'], ' et dix autres marques — appareillage, ', ['protection'], ', ', ['câbles', 'round'], ' et ', ['éclairage'], ' pour tous vos chantiers.'],
+    ar: ['موزّع معتمد لـ ', ['Legrand', 'round'], ' و', ['Schneider'], ' وعشر علامات أخرى — أجهزة التوصيل، ', ['الحماية'], '، ', ['الكابلات', 'round'], ' و', ['الإنارة'], ' لكل مواقع العمل.'],
+  },
+
+  // ── Home: about ─────────────────────────────────────────────
+  'about.eyebrow': { en: 'Who we are', fr: 'Qui sommes-nous', ar: 'من نحن' },
+  // '[art]' and '[bolt]' mark the inline pictograms
+  'about.statement': {
+    en: ["For more than fifteen years we've supplied electricians, contractors and industrial sites with ", '[art]', ' genuine equipment from the brands they trust — in stock, fairly priced ', '[bolt]', ' and delivered on time.'],
+    fr: ['Depuis plus de quinze ans, nous fournissons électriciens, installateurs et sites industriels en ', '[art]', ' matériel authentique des marques qu’ils connaissent — en stock, au juste prix ', '[bolt]', ' et livré à temps.'],
+    ar: ['منذ أكثر من خمسة عشر عامًا، نزوّد الكهربائيين والمقاولين والمواقع الصناعية بـ', '[art]', ' معدّات أصلية من العلامات التي يثقون بها — متوفرة في المخزون، بأسعار عادلة ', '[bolt]', ' وتُسلَّم في موعدها.'],
+  },
+
+  // ── Home: products ──────────────────────────────────────────
+  'cat.eyebrow': { en: 'Products', fr: 'Produits', ar: 'المنتجات' },
+  'cat.title': { en: 'From the main panel to the last socket.', fr: 'Du tableau principal à la dernière prise.', ar: 'من اللوحة الرئيسية إلى آخر مقبس.' },
+  'cat.aside': {
+    en: 'Over 8,500 references across seven product families — stocked, documented and ready for your next job.',
+    fr: 'Plus de 8 500 références réparties en sept familles — en stock, documentées et prêtes pour votre prochain chantier.',
+    ar: 'أكثر من 8,500 مرجع موزّعة على سبع عائلات من المنتجات — متوفرة وموثّقة وجاهزة لمشروعك القادم.',
+  },
+  'cat.browse': { en: 'Browse the catalogue', fr: 'Parcourir le catalogue', ar: 'تصفّح الكتالوج' },
+  'cat.browseAria': { en: 'Browse {title}', fr: 'Parcourir : {title}', ar: 'تصفّح {title}' },
+
+  // ── Home: brands ────────────────────────────────────────────
+  'brandsHome.eyebrow': { en: 'Brands', fr: 'Marques', ar: 'العلامات' },
+  'brandsHome.title': { en: 'Official partner of the names you trust.', fr: 'Partenaire officiel des marques de confiance.', ar: 'شريك معتمد للعلامات التي تثق بها.' },
+  'brandsHome.aside': {
+    en: 'Twelve manufacturers, one point of contact. Genuine products, full manufacturer warranty and the technical documentation to back them.',
+    fr: 'Douze fabricants, un seul interlocuteur. Des produits authentiques, la garantie constructeur complète et toute la documentation technique.',
+    ar: 'اثنا عشر مصنّعًا ونقطة اتصال واحدة. منتجات أصلية، وضمان كامل من المصنّع، ووثائق تقنية تدعمها.',
+  },
+  'brandsHome.all': { en: 'All 12 brands', fr: 'Les 12 marques', ar: 'جميع العلامات الـ12' },
+  'brandsHome.col.brand': { en: 'Brand', fr: 'Marque', ar: 'العلامة' },
+  'brandsHome.col.speciality': { en: 'Speciality', fr: 'Spécialité', ar: 'التخصص' },
+  'brandsHome.col.origin': { en: 'Origin', fr: 'Origine', ar: 'المنشأ' },
+  'brandsHome.col.explore': { en: 'Explore', fr: 'Découvrir', ar: 'استكشف' },
+
+  // ── Home: solutions ─────────────────────────────────────────
+  'sectors.eyebrow': { en: 'Solutions', fr: 'Solutions', ar: 'الحلول' },
+  'sectors.title': { en: 'Built for every kind of site.', fr: 'Pensé pour tous les chantiers.', ar: 'مصمَّم لكل أنواع المشاريع.' },
+  'sectors.aside': {
+    en: 'Homes, offices, plants or public networks — we know what each job takes to wire, and we keep it on the shelf.',
+    fr: 'Logements, bureaux, usines ou réseaux publics — nous savons ce qu’il faut pour chaque chantier, et nous l’avons en stock.',
+    ar: 'منازل أو مكاتب أو مصانع أو شبكات عامة — نعرف ما يحتاجه كل مشروع من تمديدات، ونحتفظ به في مخزوننا.',
+  },
+  'sectors.types': { en: '{n} project types', fr: '{n} types de projets', ar: 'أنواع المشاريع: {n}' },
+  'sectors.cta': { en: 'Quote my project', fr: 'Chiffrer mon projet', ar: 'سعّر مشروعي' },
+  'sectors.prefill': { en: 'Project type: {title}\n', fr: 'Type de projet : {title}\n', ar: 'نوع المشروع: {title}\n' },
+
+  // ── Home: process ───────────────────────────────────────────
+  'process.eyebrow': { en: 'How it works', fr: 'Comment ça marche', ar: 'كيف نعمل' },
+  'process.title': { en: 'From your list to your site in three steps.', fr: 'De votre liste à votre chantier en trois étapes.', ar: 'من قائمتك إلى موقعك في ثلاث خطوات.' },
+  'process.aside': {
+    en: "No account needed to get started. Send what you have — we'll handle the rest.",
+    fr: 'Aucun compte nécessaire. Envoyez ce que vous avez — on s’occupe du reste.',
+    ar: 'لا حاجة لإنشاء حساب. أرسل ما لديك — ونحن نتكفّل بالباقي.',
+  },
+  'process.cta': { en: 'Start a quote', fr: 'Commencer un devis', ar: 'ابدأ طلب عرض سعر' },
+  'process.step': { en: 'Step {n}', fr: 'Étape {n}', ar: 'الخطوة {n}' },
+
+  // ── Home: testimonials ──────────────────────────────────────
+  'testi.eyebrow': { en: 'Trusted on site', fr: 'Approuvé sur le terrain', ar: 'موثوق في الميدان' },
+  'testi.title': { en: 'Straight from the job site.', fr: 'Directement du chantier.', ar: 'مباشرة من موقع العمل.' },
+
+  // ── Call to action ──────────────────────────────────────────
+  'cta.eyebrow': { en: 'Start a project', fr: 'Lancer un projet', ar: 'ابدأ مشروعًا' },
+  'cta.title1': { en: 'Got a project?', fr: 'Un projet ?', ar: 'لديك مشروع؟' },
+  'cta.title2': { en: "Let's power it.", fr: 'On l’alimente.', ar: 'نحن نزوّده بالطاقة.' },
+  'cta.text': {
+    en: "Send us your list — we'll come back with a detailed quote, pro pricing and delivery options within 24 hours.",
+    fr: 'Envoyez-nous votre liste — nous revenons vers vous sous 24 heures avec un devis détaillé, des prix pros et les options de livraison.',
+    ar: 'أرسل لنا قائمتك — وسنعود إليك خلال 24 ساعة بعرض سعر مفصّل وأسعار المحترفين وخيارات التوصيل.',
+  },
+  'cta.whatsapp': { en: 'WhatsApp us', fr: 'Écrire sur WhatsApp', ar: 'راسلنا عبر واتساب' },
+
+  // ── Footer ──────────────────────────────────────────────────
+  'footer.blurb': {
+    en: 'Electrical equipment for professionals. Official distributor of twelve leading brands for electricians, contractors and industry.',
+    fr: 'Matériel électrique pour les professionnels. Distributeur officiel de douze grandes marques pour électriciens, installateurs et industriels.',
+    ar: 'معدّات كهربائية للمحترفين. موزّع معتمد لاثنتي عشرة علامة رائدة للكهربائيين والمقاولين والصناعة.',
+  },
+  'footer.callUs': { en: 'Call us', fr: 'Appelez-nous', ar: 'اتصل بنا' },
+  'footer.products': { en: 'Products', fr: 'Produits', ar: 'المنتجات' },
+  'footer.company': { en: 'Company', fr: 'Entreprise', ar: 'الشركة' },
+  'footer.contact': { en: 'Visit & contact', fr: 'Adresse & contact', ar: 'العنوان والتواصل' },
+  'footer.rights': { en: '© {year} {name}. All rights reserved.', fr: '© {year} {name}. Tous droits réservés.', ar: '© {year} {name}. جميع الحقوق محفوظة.' },
+  'footer.legal': { en: 'Legal notice', fr: 'Mentions légales', ar: 'إشعار قانوني' },
+  'footer.privacy': { en: 'Privacy', fr: 'Confidentialité', ar: 'الخصوصية' },
+  'footer.top': { en: 'Back to top', fr: 'Haut de page', ar: 'العودة للأعلى' },
+
+  // ── Quote pop-up ────────────────────────────────────────────
+  'q.tagRequest': { en: 'Request', fr: 'Demande', ar: 'طلب' },
+  'q.tagQuote': { en: 'a quote', fr: 'de devis', ar: 'عرض سعر' },
+  'q.title': { en: 'Tell us what you need.', fr: 'Dites-nous ce qu’il vous faut.', ar: 'أخبرنا بما تحتاجه.' },
+  'q.text': {
+    en: "We'll send a detailed quote with pro pricing within 24 hours — usually the same day.",
+    fr: 'Nous vous envoyons un devis détaillé aux prix pros sous 24 heures — souvent le jour même.',
+    ar: 'سنرسل لك عرض سعر مفصّلًا بأسعار المحترفين خلال 24 ساعة — غالبًا في اليوم نفسه.',
+  },
+  'q.perk1': { en: 'Pro pricing for contractors & resellers', fr: 'Tarifs pros pour installateurs et revendeurs', ar: 'أسعار خاصة للمقاولين والموزّعين' },
+  'q.perk2': { en: 'Genuine products, manufacturer warranty', fr: 'Produits authentiques, garantie constructeur', ar: 'منتجات أصلية بضمان المصنّع' },
+  'q.perk3': { en: 'Equivalents suggested when stock runs low', fr: 'Équivalences proposées en cas de rupture', ar: 'نقترح بدائل مكافئة عند نفاد المخزون' },
+  'q.talk': { en: 'Prefer to talk?', fr: 'Vous préférez en parler ?', ar: 'تفضّل التحدث معنا؟' },
+  'q.whatsapp': { en: 'Chat on WhatsApp', fr: 'Discuter sur WhatsApp', ar: 'تواصل عبر واتساب' },
+  'q.list': { en: 'Your list · {n} items', fr: 'Votre liste · {n} articles', ar: 'قائمتك · العناصر: {n}' },
+  'q.listOne': { en: 'Your list · 1 item', fr: 'Votre liste · 1 article', ar: 'قائمتك · عنصر واحد' },
+  'q.clear': { en: 'Clear list', fr: 'Vider la liste', ar: 'مسح القائمة' },
+  'q.remove': { en: 'Remove {name}', fr: 'Retirer {name}', ar: 'إزالة {name}' },
+  'q.details': { en: 'Your details', fr: 'Vos coordonnées', ar: 'بياناتك' },
+  'q.name': { en: 'Full name', fr: 'Nom complet', ar: 'الاسم الكامل' },
+  'q.company': { en: 'Company', fr: 'Société', ar: 'الشركة' },
+  'q.optional': { en: 'Optional', fr: 'Facultatif', ar: 'اختياري' },
+  'q.phone': { en: 'Phone', fr: 'Téléphone', ar: 'الهاتف' },
+  'q.email': { en: 'Email', fr: 'E-mail', ar: 'البريد الإلكتروني' },
+  'q.project': { en: 'Your list or project', fr: 'Votre liste ou projet', ar: 'قائمتك أو مشروعك' },
+  'q.anything': { en: 'Anything else?', fr: 'Autre chose ?', ar: 'هل من شيء آخر؟' },
+  'q.projectHint': { en: 'References, quantities, specs', fr: 'Références, quantités, caractéristiques', ar: 'المراجع، الكميات، المواصفات' },
+  'q.placeholder': {
+    en: 'e.g. 40 × Legrand Mosaic double socket — 12 × Schneider iC60N 2P 16A…',
+    fr: 'ex. 40 × prise double Legrand Mosaic — 12 × Schneider iC60N 2P 16A…',
+    ar: 'مثال: 40 × مقبس مزدوج Legrand Mosaic — 12 × Schneider iC60N 2P 16A…',
+  },
+  'q.attach': { en: 'Attach list or photo', fr: 'Joindre une liste ou photo', ar: 'أرفق قائمة أو صورة' },
+  'q.reply': { en: 'We reply within 24 hours on working days.', fr: 'Réponse sous 24 h les jours ouvrés.', ar: 'نرد خلال 24 ساعة في أيام العمل.' },
+  'q.send': { en: 'Send my request', fr: 'Envoyer ma demande', ar: 'أرسل طلبي' },
+  'q.sending': { en: 'Sending…', fr: 'Envoi…', ar: 'جارٍ الإرسال…' },
+  'q.err.name': { en: 'Tell us your name', fr: 'Indiquez votre nom', ar: 'يرجى إدخال اسمك' },
+  'q.err.phone': { en: 'Check the number', fr: 'Numéro invalide', ar: 'رقم غير صحيح' },
+  'q.err.email': { en: 'Check the email', fr: 'E-mail invalide', ar: 'بريد غير صحيح' },
+  'q.err.details': { en: 'Add a few references or attach your list', fr: 'Ajoutez des références ou joignez votre liste', ar: 'أضف بعض المراجع أو أرفق قائمتك' },
+  'q.ok.titleName': { en: 'Request received, {name}.', fr: 'Demande reçue, {name}.', ar: 'تم استلام طلبك يا {name}.' },
+  'q.ok.title': { en: 'Request received.', fr: 'Demande reçue.', ar: 'تم استلام طلبك.' },
+  'q.ok.text': {
+    en: "Our team is on it. You'll get a detailed quote by email within 24 hours — we may call if we need to clarify a reference.",
+    fr: 'Notre équipe s’en occupe. Vous recevrez un devis détaillé par e-mail sous 24 heures — nous pourrons vous appeler pour préciser une référence.',
+    ar: 'فريقنا يعمل على طلبك. ستتلقى عرض سعر مفصّلًا عبر البريد الإلكتروني خلال 24 ساعة — وقد نتصل بك لتوضيح أحد المراجع.',
+  },
+  'q.ok.ref': { en: 'Reference · {ref}', fr: 'Référence · {ref}', ar: 'المرجع · {ref}' },
+  'q.ok.back': { en: 'Back to the site', fr: 'Retour au site', ar: 'العودة إلى الموقع' },
+  'q.ok.again': { en: 'Send another request', fr: 'Nouvelle demande', ar: 'إرسال طلب آخر' },
+  'q.prefillQuestion': { en: 'Question about {brand} {name} ({sku}):\n', fr: 'Question sur {brand} {name} ({sku}) :\n', ar: 'سؤال حول {brand} {name} ({sku}):\n' },
+  'q.prefillLooking': { en: 'Looking for: {q}\n', fr: 'Je recherche : {q}\n', ar: 'أبحث عن: {q}\n' },
+
+  // ── Page transition labels ─────────────────────────────────
+  'tr.welcome': { en: 'Welcome to', fr: 'Bienvenue chez', ar: 'مرحبًا بكم في' },
+  'tr.brand': { en: 'Brand', fr: 'Marque', ar: 'العلامة' },
+  'tr.partners': { en: 'Our partners', fr: 'Nos partenaires', ar: 'شركاؤنا' },
+  'tr.catalogue': { en: 'Catalogue', fr: 'Catalogue', ar: 'الكتالوج' },
+  'tr.allProducts': { en: 'All products', fr: 'Tous les produits', ar: 'جميع المنتجات' },
+  'tr.oops': { en: 'Oops', fr: 'Oups', ar: 'عذرًا' },
+  'tr.notFound': { en: 'Page not found', fr: 'Page introuvable', ar: 'الصفحة غير موجودة' },
+
+  // ── Brands page ─────────────────────────────────────────────
+  'bp.title': { en: 'The brands behind every job site.', fr: 'Les marques derrière chaque chantier.', ar: 'العلامات التي تقف وراء كل مشروع.' },
+  'bp.lead': {
+    en: 'Official partnerships with the manufacturers electricians trust — genuine products, full manufacturer warranty and the technical documentation to back them.',
+    fr: 'Des partenariats officiels avec les fabricants en qui les électriciens ont confiance — produits authentiques, garantie constructeur complète et documentation technique.',
+    ar: 'شراكات رسمية مع المصنّعين الذين يثق بهم الكهربائيون — منتجات أصلية وضمان كامل من المصنّع ووثائق تقنية داعمة.',
+  },
+  'bp.stat.brands': { en: 'Brands', fr: 'Marques', ar: 'علامات' },
+  'bp.stat.countries': { en: 'Countries', fr: 'Pays', ar: 'دول' },
+  'bp.stat.request': { en: 'On request', fr: 'Sur demande', ar: 'عند الطلب' },
+  'bp.all': { en: 'All brands', fr: 'Toutes les marques', ar: 'كل العلامات' },
+  'bt.since': { en: 'Since {year}', fr: 'Depuis {year}', ar: 'منذ {year}' },
+  'bt.product1': { en: '1 product', fr: '1 produit', ar: 'منتج واحد' },
+  'bt.products': { en: '{n} products', fr: '{n} produits', ar: 'المنتجات: {n}' },
+
+  // ── Brand page ──────────────────────────────────────────────
+  'b.partner': { en: 'Official partner · {country}', fr: 'Partenaire officiel · {country}', ar: 'شريك معتمد · {country}' },
+  'b.browse': { en: 'Browse {n} products', fr: 'Voir les {n} produits', ar: 'تصفّح المنتجات ({n})' },
+  'b.founded': { en: 'Founded', fr: 'Fondée en', ar: 'سنة التأسيس' },
+  'b.hq': { en: 'Headquarters', fr: 'Siège', ar: 'المقر الرئيسي' },
+  'b.speciality': { en: 'Speciality', fr: 'Spécialité', ar: 'التخصص' },
+  'b.inCatalogue': { en: 'In our catalogue', fr: 'Dans notre catalogue', ar: 'في كتالوجنا' },
+  'b.website': { en: 'Manufacturer website', fr: 'Site du fabricant', ar: 'موقع المصنّع' },
+  'b.inStock': { en: 'In stock', fr: 'En stock', ar: 'متوفر' },
+  'b.range': { en: 'The {name} range.', fr: 'La gamme {name}.', ar: 'تشكيلة {name}.' },
+  'b.all': { en: 'All', fr: 'Tous', ar: 'الكل' },
+  'b.selection': {
+    en: 'Showing a selection — we stock the wider {name} range.',
+    fr: 'Une sélection — nous proposons toute la gamme {name}.',
+    ar: 'هذه مجموعة مختارة — نوفّر تشكيلة {name} الكاملة.',
+  },
+  'b.seeCatalogue': { en: 'See it in the catalogue', fr: 'Voir dans le catalogue', ar: 'شاهدها في الكتالوج' },
+  'b.perk1.title': { en: 'Genuine stock', fr: 'Stock authentique', ar: 'مخزون أصلي' },
+  'b.perk1.text': {
+    en: "Every {name} product comes straight from the manufacturer's official channel — no grey imports.",
+    fr: 'Chaque produit {name} provient directement du réseau officiel du fabricant — aucune importation parallèle.',
+    ar: 'كل منتج من {name} يأتي مباشرة من القناة الرسمية للمصنّع — دون أي استيراد موازٍ.',
+  },
+  'b.perk2.title': { en: 'Full warranty', fr: 'Garantie complète', ar: 'ضمان كامل' },
+  'b.perk2.text': {
+    en: 'Manufacturer warranty and certificates on every item, with the documentation your inspector will ask for.',
+    fr: 'Garantie constructeur et certificats sur chaque article, avec la documentation que votre contrôleur demandera.',
+    ar: 'ضمان المصنّع وشهادات لكل منتج، مع الوثائق التي سيطلبها المراقب.',
+  },
+  'b.perk3.title': { en: 'Expert advice', fr: 'Conseil d’expert', ar: 'استشارة خبير' },
+  'b.perk3.text': {
+    en: 'Our team knows the {name} ranges and suggests equivalents when a reference runs short.',
+    fr: 'Notre équipe connaît les gammes {name} et propose des équivalences quand une référence manque.',
+    ar: 'فريقنا يعرف تشكيلات {name} ويقترح بدائل مكافئة عند نقص أحد المراجع.',
+  },
+  'b.next': { en: 'Next brand', fr: 'Marque suivante', ar: 'العلامة التالية' },
+
+  // ── Catalogue page ──────────────────────────────────────────
+  'pp.title': { en: 'Everything the job needs, in stock.', fr: 'Tout ce qu’il faut au chantier, en stock.', ar: 'كل ما يحتاجه مشروعك، متوفر.' },
+  'pp.lead': {
+    en: "Browse a selection of our best-selling references. Can't find yours? We source over 8,500 more — send us your list and we'll price it within 24 hours.",
+    fr: 'Parcourez une sélection de nos références phares. Vous ne trouvez pas la vôtre ? Nous en proposons plus de 8 500 — envoyez-nous votre liste, nous la chiffrons sous 24 heures.',
+    ar: 'تصفّح مجموعة من أكثر مراجعنا مبيعًا. لم تجد ما تبحث عنه؟ نوفّر أكثر من 8,500 مرجع آخر — أرسل لنا قائمتك وسنسعّرها خلال 24 ساعة.',
+  },
+  'pp.sendList': { en: 'Send us your list', fr: 'Envoyez votre liste', ar: 'أرسل قائمتك' },
+  'pp.all': { en: 'All', fr: 'Tous', ar: 'الكل' },
+  'pp.allBrands': { en: 'All brands', fr: 'Toutes les marques', ar: 'كل العلامات' },
+  'pp.search': { en: 'Search name, SKU, spec…', fr: 'Nom, référence, caractéristique…', ar: 'ابحث بالاسم أو المرجع أو المواصفة…' },
+  'pp.searchAria': { en: 'Search the catalogue', fr: 'Rechercher dans le catalogue', ar: 'ابحث في الكتالوج' },
+  'pp.count': { en: '{n} of {total} products', fr: '{n} sur {total} produits', ar: '{n} من أصل {total} منتج' },
+  'pp.clear': { en: 'Clear filters', fr: 'Effacer les filtres', ar: 'مسح الفلاتر' },
+  'pp.empty.title': { en: 'No match in this selection.', fr: 'Aucun résultat dans cette sélection.', ar: 'لا توجد نتائج في هذه المجموعة.' },
+  'pp.empty.text': {
+    en: "We stock far more than we list here. Send us the reference and we'll check availability and price it for you.",
+    fr: 'Notre stock va bien au-delà de ce catalogue. Envoyez-nous la référence, nous vérifions sa disponibilité et la chiffrons pour vous.',
+    ar: 'مخزوننا أكبر بكثير مما نعرضه هنا. أرسل لنا المرجع وسنتحقق من توفّره ونسعّره لك.',
+  },
+  'pp.empty.ask': { en: 'Ask for this reference', fr: 'Demander cette référence', ar: 'اطلب هذا المرجع' },
+
+  // ── Product page ────────────────────────────────────────────
+  'p.addToList': { en: 'Add to quote list', fr: 'Ajouter au devis', ar: 'أضف إلى قائمة العرض' },
+  'p.ask': { en: 'Ask our team about this product', fr: 'Poser une question sur ce produit', ar: 'اسأل فريقنا عن هذا المنتج' },
+  'p.inList': { en: '{n} in your quote list —', fr: '{n} dans votre liste de devis —', ar: 'في قائمة عرض السعر: {n} —' },
+  'p.review': { en: 'review & send', fr: 'vérifier et envoyer', ar: 'مراجعة وإرسال' },
+  'p.genuine': { en: 'Genuine {brand} product', fr: 'Produit {brand} authentique', ar: 'منتج {brand} أصلي' },
+  'p.warranty': { en: 'Full manufacturer warranty', fr: 'Garantie constructeur complète', ar: 'ضمان كامل من المصنّع' },
+  'p.delivery': { en: 'Delivered to site in 24–72 h', fr: 'Livré sur chantier en 24–72 h', ar: 'توصيل إلى الموقع خلال 24–72 ساعة' },
+  'p.highlights': { en: 'Highlights', fr: 'Points forts', ar: 'أبرز المزايا' },
+  'p.why': { en: 'Why installers pick it.', fr: 'Pourquoi les pros le choisissent.', ar: 'لماذا يختاره المحترفون.' },
+  'p.specs': { en: 'Specifications', fr: 'Caractéristiques', ar: 'المواصفات' },
+  'p.brand': { en: 'Brand', fr: 'Marque', ar: 'العلامة' },
+  'p.category': { en: 'Category', fr: 'Catégorie', ar: 'الفئة' },
+  'p.packaging': { en: 'Packaging', fr: 'Conditionnement', ar: 'التعبئة' },
+  'p.reference': { en: 'Reference', fr: 'Référence', ar: 'المرجع' },
+  'p.datasheet': { en: 'Datasheet (PDF)', fr: 'Fiche technique (PDF)', ar: 'النشرة الفنية (PDF)' },
+  'p.website': { en: '{brand} website', fr: 'Site {brand}', ar: 'موقع {brand}' },
+  'p.related': { en: 'Related', fr: 'Similaires', ar: 'منتجات مشابهة' },
+  'p.moreIn': { en: 'More in {category}.', fr: 'Aussi en {category}.', ar: 'المزيد من {category}.' },
+  'p.seeAll': { en: 'See all', fr: 'Voir tout', ar: 'عرض الكل' },
+  'p.moreFrom': { en: 'More from {brand}.', fr: 'Plus de {brand}.', ar: 'المزيد من {brand}.' },
+  'p.about': { en: 'About {brand}', fr: 'À propos de {brand}', ar: 'عن {brand}' },
+  'p.partner': { en: 'Official partner', fr: 'Partenaire officiel', ar: 'شريك معتمد' },
+  'p.explore': { en: 'Explore the full {brand} range.', fr: 'Découvrez toute la gamme {brand}.', ar: 'اكتشف تشكيلة {brand} الكاملة.' },
+  'p.view': { en: 'View {brand}', fr: 'Voir {brand}', ar: 'عرض {brand}' },
+  'p.fig': { en: 'Fig. 01 — {sku}', fr: 'Fig. 01 — {sku}', ar: 'الشكل 01 — {sku}' },
+
+  // ── 404 ─────────────────────────────────────────────────────
+  'nf.eyebrow': { en: 'Error 404 · Circuit open', fr: 'Erreur 404 · Circuit ouvert', ar: 'خطأ 404 · دائرة مفتوحة' },
+  'nf.text': { en: "This page isn't wired up. Let's get you back on the grid.", fr: 'Cette page n’est pas raccordée. Revenons sur le réseau.', ar: 'هذه الصفحة غير موصولة. لنُعِدك إلى الشبكة.' },
+  'nf.home': { en: 'Back to home', fr: 'Retour à l’accueil', ar: 'العودة إلى الرئيسية' },
+  'nf.catalogue': { en: 'Browse the catalogue', fr: 'Parcourir le catalogue', ar: 'تصفّح الكتالوج' },
+}
