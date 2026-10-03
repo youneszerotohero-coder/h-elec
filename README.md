@@ -1,4 +1,4 @@
-# Voltis — electrical distributor website
+# SARL H ELEC — electrical distributor website
 
 React 19 + Vite + Tailwind CSS v4 + React Router, animated with GSAP (ScrollTrigger, SplitText, Flip, CustomEase) and Lenis smooth scroll.
 
@@ -48,8 +48,9 @@ The switch is in the navbar (`EN ▾`), in the menu and in the footer. The choic
 
 ## Before going live
 
-- Replace the placeholder name "Voltis", logo (`src/components/Logo.jsx`), phone, email, address and social links.
+- Replace the placeholder phone, email, address and social links in `src/data/content.js`.
 - **Products are sample data** — swap `src/data/products.js` for the client's real catalogue (or fetch it from an API). The SKUs are placeholder distributor references.
+- **Ranges (gammes)** live in `src/data/gammes.js`; each product points to its range with `gamme: <slug>`. Brand pages list the ranges and link to `/products?brand=<brand>&gamme=<slug>`.
 - Confirm the brand list and "official distributor" claims with the client; stats and testimonials are placeholders too.
 - Have a native speaker proofread the French and Arabic copy (`src/i18n/ui.js`, and the `fr` / `ar` fields in `src/data/`).
 - Connect the quote form: `submit()` in `QuoteModal.jsx` currently simulates a send — post `form` and `items` (the quote list) to a backend or email service.

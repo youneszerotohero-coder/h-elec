@@ -7,7 +7,7 @@ import { LANGS, useI18n } from '../i18n/I18n'
 import { ui } from '../i18n/ui'
 import { brandBySlug, categoryBySlug, site } from '../data/content'
 import { productBySlug } from '../data/products'
-import { Power } from '../components/icons'
+import { LogoMark } from '../components/Logo'
 
 /*
   Page transition — the navbar becomes the curtain:
@@ -193,7 +193,7 @@ export function TransitionProvider({ children }) {
         className="pointer-events-none invisible fixed inset-0 z-40 flex flex-col items-center justify-center px-6 text-center text-neutral-100 opacity-0"
       >
         <span data-t-icon className="mb-6 flex items-center gap-2.5">
-          <Power className="size-5 text-volt" strokeWidth={3.4} />
+          <LogoMark className="size-6" />
           <span className="eyebrow text-neutral-400">{text.eyebrow}</span>
         </span>
         <span className="display flex max-w-[14em] flex-wrap justify-center gap-x-[0.24em] text-[clamp(2.6rem,6.4vw,7.5rem)] leading-[0.95] tracking-[-0.05em]">

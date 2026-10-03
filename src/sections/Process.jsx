@@ -137,7 +137,7 @@ export default function Process() {
             <div key={i} className="relative pb-14 ps-20 last:pb-0 lg:flex lg:flex-col lg:items-center lg:px-8 lg:pb-0 lg:text-center">
               <span
                 data-node
-                className="absolute top-0 start-0 z-10 flex size-14 items-center justify-center rounded-full border border-neutral-400 bg-neutral-200 font-mono text-[0.85rem] transition-[background-color,border-color,box-shadow] duration-500 ease-osmo data-[lit]:border-neutral-800 data-[lit]:bg-volt data-[lit]:shadow-[0_0_0_0.5rem_rgba(255,212,0,0.28)] lg:relative lg:mt-3"
+                className="absolute top-0 start-0 z-10 flex size-14 items-center justify-center rounded-full border border-neutral-400 bg-neutral-200 font-mono text-[0.85rem] transition-[background-color,border-color,box-shadow] duration-500 ease-osmo data-[lit]:border-neutral-800 data-[lit]:bg-volt data-[lit]:shadow-[0_0_0_0.5rem_rgba(240,168,32,0.28)] lg:relative lg:mt-3"
               >
                 {pad(i + 1)}
               </span>

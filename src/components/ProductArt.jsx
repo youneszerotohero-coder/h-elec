@@ -3,12 +3,12 @@
 // Classes: .a-fill / .a-deep / .a-acc / .a-glow (fills), currentColor (ink).
 
 export const artThemes = {
-  volt: { '--art-bg': '#ffd400', '--art-ink': '#1f1d1b', '--art-fill': '#ffe45c', '--art-deep': '#efc400', '--art-accent': '#1f1d1b', '--art-glow': '#ffffff' },
-  blue: { '--art-bg': '#3450ff', '--art-ink': '#ffffff', '--art-fill': '#4d68ff', '--art-deep': '#263fe0', '--art-accent': '#ffd400', '--art-glow': '#ffd400' },
-  light: { '--art-bg': '#e5e3dd', '--art-ink': '#1f1d1b', '--art-fill': '#f8f7f4', '--art-deep': '#d3d0c7', '--art-accent': '#3450ff', '--art-glow': '#ffd400' },
-  dark: { '--art-bg': '#2d2a27', '--art-ink': '#f1f0ec', '--art-fill': '#3a3733', '--art-deep': '#1f1d1b', '--art-accent': '#ffd400', '--art-glow': '#ffd400' },
-  copper: { '--art-bg': '#d4692c', '--art-ink': '#1f1d1b', '--art-fill': '#e58a55', '--art-deep': '#b9571f', '--art-accent': '#ffd400', '--art-glow': '#ffe45c' },
-  paper: { '--art-bg': '#f4f3ef', '--art-ink': '#1f1d1b', '--art-fill': '#ffffff', '--art-deep': '#e4e1d9', '--art-accent': '#3450ff', '--art-glow': '#ffd400' },
+  volt: { '--art-bg': '#f0a820', '--art-ink': '#1f1d1b', '--art-fill': '#f7c65a', '--art-deep': '#d8911a', '--art-accent': '#1f1d1b', '--art-glow': '#ffffff' },
+  red: { '--art-bg': '#e2231a', '--art-ink': '#ffffff', '--art-fill': '#ea4a42', '--art-deep': '#c21a12', '--art-accent': '#f0a820', '--art-glow': '#f7c65a' },
+  light: { '--art-bg': '#e5e3dd', '--art-ink': '#1f1d1b', '--art-fill': '#f8f7f4', '--art-deep': '#d3d0c7', '--art-accent': '#e2231a', '--art-glow': '#f0a820' },
+  dark: { '--art-bg': '#2d2a27', '--art-ink': '#f1f0ec', '--art-fill': '#3a3733', '--art-deep': '#1f1d1b', '--art-accent': '#f0a820', '--art-glow': '#f0a820' },
+  copper: { '--art-bg': '#c2410c', '--art-ink': '#1f1d1b', '--art-fill': '#d9642e', '--art-deep': '#a3360a', '--art-accent': '#f0a820', '--art-glow': '#f7c65a' },
+  paper: { '--art-bg': '#f4f3ef', '--art-ink': '#1f1d1b', '--art-fill': '#ffffff', '--art-deep': '#e4e1d9', '--art-accent': '#e2231a', '--art-glow': '#f0a820' },
 }
 
 // `accent` lets a product tint its illustration (breaker levers, LEDs…) with its brand colour
@@ -105,7 +105,7 @@ const art = {
       <path d="M132 100l11-6" stroke={WIRE.live} strokeWidth="3.4" strokeLinecap="round" />
       <path d="M132 100l13 2" stroke={WIRE.neutral} strokeWidth="3.4" strokeLinecap="round" />
       <path d="M132 100l9 9" stroke={WIRE.earth} strokeWidth="3.4" strokeLinecap="round" />
-      <path d="M132 100l9 9" stroke="#ffd400" strokeWidth="3.4" strokeDasharray="2.5 2.5" />
+      <path d="M132 100l9 9" stroke="#f0a820" strokeWidth="3.4" strokeDasharray="2.5 2.5" />
       <circle cx="144.5" cy="93.2" r="2" fill={WIRE.copper} />
       <circle cx="147" cy="102.3" r="2" fill={WIRE.copper} />
       <circle cx="142.6" cy="110.6" r="2" fill={WIRE.copper} />

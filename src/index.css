@@ -24,12 +24,12 @@
   --color-neutral-800: #1f1d1b;
   --color-neutral-900: #161513;
 
-  /* Accents */
-  --color-volt: #ffd400;
-  --color-volt-300: #ffe45c;
-  --color-spark: #3450ff;
-  --color-spark-300: #7086ff;
-  --color-copper: #d4692c;
+  /* Brand accents, from the SARL H ELEC logo — "volt" is the gold underline, "spark" the red roof */
+  --color-volt: #f0a820;
+  --color-volt-300: #f7c65a;
+  --color-spark: #e2231a;
+  --color-spark-300: #f0655f;
+  --color-copper: #c2410c;
 
   /* Motion */
   --ease-osmo: cubic-bezier(0.625, 0.05, 0, 1);

@@ -48,7 +48,7 @@ export default function Footer() {
       <div className="container-x pt-[clamp(4rem,8vw,7rem)]">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Wordmark className="text-[2.2rem]" />
+            <Wordmark className="text-[2.6rem]" />
             <p className="mt-6 max-w-[22em] text-neutral-400">
               {t('footer.blurb')}
             </p>

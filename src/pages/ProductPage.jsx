@@ -5,6 +5,7 @@ import { flyToQuote } from '../lib/flyToQuote'
 import { useQuote } from '../context/QuoteContext'
 import { TLink } from '../transition/PageTransition'
 import { brandBySlug, categoryBySlug } from '../data/content'
+import { gammeBySlug } from '../data/gammes'
 import { productBySlug, products, specLabels } from '../data/products'
 import Page, { Breadcrumbs, SplitWords, useIntro } from '../components/Page'
 import { ProductCard, QtyStepper, StockTag } from '../components/Catalog'
@@ -197,7 +198,7 @@ function Visual({ product, brand, category }) {
           backgroundSize: '5% 6.25%',
         }}
       />
-      <span aria-hidden="true" className="absolute inset-[18%] rounded-full bg-[radial-gradient(closest-side,rgba(255,212,0,0.22),transparent)]" />
+      <span aria-hidden="true" className="absolute inset-[18%] rounded-full bg-[radial-gradient(closest-side,rgba(240,168,32,0.22),transparent)]" />
       <span aria-hidden="true" className={`${corner} top-5 left-5 border-t border-l`} />
       <span aria-hidden="true" className={`${corner} top-5 right-5 border-t border-r`} />
       <span aria-hidden="true" className={`${corner} bottom-5 left-5 border-b border-l`} />
@@ -275,10 +276,12 @@ function AddToQuote({ product, brand }) {
 }
 
 function Details({ product, brand, category }) {
+  const gamme = gammeBySlug(product.gamme)
   const { t, l } = useI18n()
   const sheet = [
     ...useSpecs(product),
     [t('p.brand'), brand.name],
+    ...(gamme ? [[t('p.gamme'), l(gamme.name)]] : []),
     [t('p.category'), l(category.title)],
     [t('p.packaging'), l(product.pack)],
     [t('p.reference'), product.sku],

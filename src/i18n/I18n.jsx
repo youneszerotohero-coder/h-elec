@@ -12,7 +12,7 @@ export const LANGS = {
   ar: { label: 'العربية', short: 'ع', dir: 'rtl', locale: 'en-US' }, // Western digits, as used across the Maghreb
 }
 
-const STORAGE_KEY = 'voltis-lang'
+const STORAGE_KEY = 'helec-lang'
 
 function detect() {
   try {

@@ -1,13 +1,13 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useParams } from 'react-router'
-import { useFlipFilter } from '../lib/useFlipFilter'
 import { scrollToTarget } from '../lib/scroll'
 import { useQuote } from '../context/QuoteContext'
 import { TLink } from '../transition/PageTransition'
-import { brandBySlug, brands, categories } from '../data/content'
+import { brandBySlug, brands } from '../data/content'
 import { productsByBrand } from '../data/products'
+import { gammesByBrand } from '../data/gammes'
 import Page, { Breadcrumbs, SplitWords, useIntro } from '../components/Page'
-import { FilterPills, ProductCard } from '../components/Catalog'
+import { GammeCard } from '../components/Catalog'
 import BrandVisual from '../components/BrandVisual'
 import { Eyebrow } from '../components/Section'
 import Button from '../components/Button'
@@ -70,7 +70,7 @@ function BrandHero({ brand }) {
             </p>
             <div data-intro className="mt-9 flex flex-wrap gap-2">
               <Button size="lg" onClick={() => scrollToTarget('#range')} icon={<ArrowDown className="size-5" />}>
-                {t('b.browse', { n: num(count) })}
+                {t('b.browse', { n: num(gammesByBrand(brand.slug).length) })}
               </Button>
               <Button size="lg" variant="outline" onClick={(e) => openQuote({ brands: [brand.name] }, e.currentTarget)}>
                 {t('common.requestQuote')}
@@ -106,46 +106,29 @@ function BrandHero({ brand }) {
   )
 }
 
+// The brand's ranges ("gammes"); each card opens the catalogue filtered on brand + range
 function Range({ brand }) {
-  const list = productsByBrand(brand.slug)
-  const [filter, setFilter] = useState('all')
-  const grid = useRef(null)
-  const capture = useFlipFilter(grid, [filter])
-  const { t, l, num } = useI18n()
-  const used = categories.filter((c) => list.some((p) => p.category === c.slug))
-  const options = [
-    { value: 'all', label: t('b.all'), count: list.length },
-    ...used.map((c) => ({ value: c.slug, label: l(c.title), count: list.filter((p) => p.category === c.slug).length })),
-  ]
+  const list = gammesByBrand(brand.slug)
+  const { t, num } = useI18n()
 
   return (
     <section id="range" className="scroll-mt-24 pb-[clamp(5rem,11vw,10rem)]">
       <div className="container-x">
         <div className="grid gap-8 border-t border-neutral-400 pt-10 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <Eyebrow index="01">{t('b.inStock')}</Eyebrow>
+          <div className="lg:col-span-8">
+            <Eyebrow index="01">{list.length === 1 ? t('bt.gamme1') : t('bt.gammes', { n: num(list.length) })}</Eyebrow>
             <h2 data-split className="display mt-6 text-h2">
               {t('b.range', { name: brand.short ?? brand.name })}
             </h2>
           </div>
-          <div data-reveal className="lg:col-span-5 lg:justify-self-end">
-            {used.length > 1 && (
-              <FilterPills
-                options={options}
-                value={filter}
-                onChange={(v) => {
-                  if (v === filter) return
-                  capture()
-                  setFilter(v)
-                }}
-              />
-            )}
-          </div>
+          <p data-reveal className="max-w-[26em] text-neutral-550 lg:col-span-4 lg:justify-self-end">
+            {t('b.rangeLead')}
+          </p>
         </div>
 
-        <div ref={grid} className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {list.map((p) => (
-            <ProductCard key={p.slug} product={p} data-reveal hidden={filter !== 'all' && p.category !== filter} />
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {list.map((g) => (
+            <GammeCard key={g.slug} gamme={g} data-reveal />
           ))}
         </div>
 

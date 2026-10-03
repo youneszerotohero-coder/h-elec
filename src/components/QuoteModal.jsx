@@ -347,7 +347,7 @@ function QuoteList({ items, count, setQty, removeItem, clearItems }) {
 }
 
 const inputClass =
-  'h-11 [@media(max-height:780px)]:h-10 w-full rounded-[0.375rem] border border-neutral-600 bg-neutral-700/50 px-4 text-[1rem] text-neutral-100 outline-none transition-[border-color,background-color,box-shadow] duration-300 placeholder:text-neutral-500 hover:border-neutral-500 focus:border-volt focus:bg-neutral-700 focus:shadow-[0_0_0_3px_rgba(255,212,0,0.14)]'
+  'h-11 [@media(max-height:780px)]:h-10 w-full rounded-[0.375rem] border border-neutral-600 bg-neutral-700/50 px-4 text-[1rem] text-neutral-100 outline-none transition-[border-color,background-color,box-shadow] duration-300 placeholder:text-neutral-500 hover:border-neutral-500 focus:border-volt focus:bg-neutral-700 focus:shadow-[0_0_0_3px_rgba(240,168,32,0.14)]'
 const errorClass = 'border-[#ff7a59]! focus:border-[#ff7a59]! focus:shadow-[0_0_0_3px_rgba(255,122,89,0.18)]!'
 
 // Errors sit at the end of the label row, so showing them never makes the form taller (it must fit without scrolling)

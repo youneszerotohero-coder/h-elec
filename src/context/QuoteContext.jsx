@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 
 const QuoteContext = createContext(null)
-const STORAGE_KEY = 'voltis-quote-list'
+const STORAGE_KEY = 'helec-quote-list'
 
 const load = () => {
   try {

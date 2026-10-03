@@ -5,6 +5,7 @@ import { useFlipFilter } from '../lib/useFlipFilter'
 import { useQuote } from '../context/QuoteContext'
 import { brandBySlug, brands, categories, categoryBySlug } from '../data/content'
 import { products, specLabels } from '../data/products'
+import { gammeBySlug, gammesByBrand } from '../data/gammes'
 import Page, { PageHero } from '../components/Page'
 import { FilterPills, ProductCard } from '../components/Catalog'
 import { BrandLogo } from '../components/BrandVisual'
@@ -21,6 +22,7 @@ const haystack = (p) =>
     p.sku,
     ...all(p.summary),
     brandBySlug(p.brand)?.name,
+    ...all(gammeBySlug(p.gamme)?.name),
     ...all(categoryBySlug(p.category)?.title),
     ...p.specs.flatMap(([label, value]) => [...all(specLabels[label] ?? label), ...all(value)]),
   ]
@@ -31,15 +33,21 @@ export default function ProductsPage() {
   const [params, setParams] = useSearchParams()
   const category = params.get('category') ?? 'all'
   const brand = params.get('brand') ?? 'all'
+  // A range only makes sense inside its own brand (?brand=legrand&gamme=mosaic); anything else is ignored
+  const activeGamme = gammeBySlug(params.get('gamme'))
+  const gamme = activeGamme && activeGamme.brand === brand ? activeGamme.slug : 'all'
   // The search box keeps its own state (URL updates are async and would drop fast keystrokes)
   const [query, setQuery] = useState(() => params.get('q') ?? '')
   const grid = useRef(null)
-  const capture = useFlipFilter(grid, [category, brand, query])
+  const capture = useFlipFilter(grid, [category, brand, gamme, query])
   const { openQuote } = useQuote()
   const { t, l, num } = useI18n()
 
-  const matches = (p, { c = category, b = brand, q = query } = {}) =>
-    (c === 'all' || p.category === c) && (b === 'all' || p.brand === b) && (!q || haystack(p).includes(q.trim().toLowerCase()))
+  const matches = (p, { c = category, b = brand, g = gamme, q = query } = {}) =>
+    (c === 'all' || p.category === c) &&
+    (b === 'all' || p.brand === b) &&
+    (g === 'all' || p.gamme === g) &&
+    (!q || haystack(p).includes(q.trim().toLowerCase()))
   const visible = products.filter((p) => matches(p))
 
   const update = (patch) => {
@@ -54,11 +62,23 @@ export default function ProductsPage() {
     { value: 'all', label: t('pp.all'), count: products.filter((p) => matches(p, { c: 'all' })).length },
     ...categories.map((c) => ({ value: c.slug, label: l(c.title), count: products.filter((p) => matches(p, { c: c.slug })).length })),
   ]
+  const brandGammes = brand === 'all' ? [] : gammesByBrand(brand)
+  const gammeOptions = [
+    { value: 'all', label: t('pp.allGammes'), count: products.filter((p) => matches(p, { g: 'all' })).length },
+    ...brandGammes.map((g) => ({ value: g.slug, label: l(g.name), count: products.filter((p) => matches(p, { g: g.slug })).length })),
+  ]
   const activeCategory = categoryBySlug(category)
+  const selectedGamme = gamme === 'all' ? null : activeGamme
   const filtered = category !== 'all' || brand !== 'all' || query
+  const clearAll = { category: 'all', brand: 'all', gamme: 'all', q: '' }
+  const title = selectedGamme
+    ? `${brandBySlug(brand).name} ${l(selectedGamme.name)}`
+    : activeCategory
+      ? l(activeCategory.title)
+      : t('common.catalogue')
 
   return (
-    <Page title={activeCategory ? l(activeCategory.title) : t('common.catalogue')}>
+    <Page title={title}>
       <PageHero
         index={String(products.length)}
         eyebrow={t('common.catalogue')}
@@ -105,27 +125,36 @@ export default function ProductsPage() {
           {/* Brand chips */}
           <div data-reveal className="no-scrollbar relative z-10 -mx-[clamp(1rem,3.2vw,2.75rem)] mt-4 overflow-x-auto px-[clamp(1rem,3.2vw,2.75rem)]">
             <div className="flex gap-1.5">
-              <BrandChip active={brand === 'all'} onClick={() => update({ brand: 'all' })}>
+              <BrandChip active={brand === 'all'} onClick={() => update({ brand: 'all', gamme: 'all' })}>
                 <span className="px-1 text-[0.92rem]">{t('pp.allBrands')}</span>
               </BrandChip>
               {brands.map((b) => (
-                <BrandChip key={b.slug} active={brand === b.slug} onClick={() => update({ brand: brand === b.slug ? 'all' : b.slug })} label={b.name}>
+                <BrandChip key={b.slug} active={brand === b.slug} onClick={() => update({ brand: brand === b.slug ? 'all' : b.slug, gamme: 'all' })} label={b.name}>
                   <BrandLogo brand={b} className="h-[calc(1rem*var(--logo-f))] w-auto max-w-[5.5rem]" />
                 </BrandChip>
               ))}
             </div>
           </div>
 
+          {/* Ranges of the selected brand */}
+          {brandGammes.length > 1 && (
+            <div className="mt-3 flex items-center gap-3">
+              <span className="eyebrow shrink-0 text-neutral-500 max-sm:hidden">{t('pp.gammes')}</span>
+              <FilterPills options={gammeOptions} value={gamme} onChange={(v) => v !== gamme && update({ gamme: v })} className="min-w-0 flex-1" />
+            </div>
+          )}
+
           <div data-reveal className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-neutral-400 pt-4">
             <p className="font-mono text-[0.8rem] text-neutral-550 uppercase" aria-live="polite">
               {t('pp.count', { n: num(visible.length), total: num(products.length) })}
               {activeCategory && <> · {l(activeCategory.title)}</>}
               {brand !== 'all' && <> · {brandBySlug(brand)?.name}</>}
+              {selectedGamme && <> · {l(selectedGamme.name)}</>}
             </p>
             {filtered && (
               <button
                 type="button"
-                onClick={() => update({ category: 'all', brand: 'all', q: '' })}
+                onClick={() => update(clearAll)}
                 className="flex items-center gap-1.5 font-mono text-[0.8rem] text-neutral-800 uppercase hover:text-neutral-550"
               >
                 <Close className="size-3.5" /> {t('pp.clear')}
@@ -147,7 +176,7 @@ export default function ProductsPage() {
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-2">
                 <Button onClick={(e) => openQuote({ details: query ? t('q.prefillLooking', { q: query }) : '' }, e.currentTarget)}>{t('pp.empty.ask')}</Button>
-                <Button variant="outline" onClick={() => update({ category: 'all', brand: 'all', q: '' })}>
+                <Button variant="outline" onClick={() => update(clearAll)}>
                   {t('pp.clear')}
                 </Button>
               </div>

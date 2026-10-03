@@ -5,7 +5,7 @@ import { flyToQuote } from '../lib/flyToQuote'
 import { useQuote } from '../context/QuoteContext'
 import { TLink } from '../transition/PageTransition'
 import { brandBySlug, categoryBySlug } from '../data/content'
-import { productsByBrand } from '../data/products'
+import { gammesByBrand, productsByGamme } from '../data/gammes'
 import { useI18n } from '../i18n/I18n'
 import ProductArt, { artTheme } from './ProductArt'
 import BrandVisual, { BrandLogo } from './BrandVisual'
@@ -95,9 +95,54 @@ export function ProductCard({ product, hidden = false, className = '', ...props 
   )
 }
 
+/** Range ("gamme") tile — opens the catalogue filtered on this brand + range. */
+export function GammeCard({ gamme, className = '', ...props }) {
+  const brand = brandBySlug(gamme.brand)
+  const list = productsByGamme(gamme.slug)
+  const categoryList = [...new Set(list.map((p) => p.category))].map(categoryBySlug)
+  const { t, l, num } = useI18n()
+
+  return (
+    <TLink
+      {...props}
+      to={`/products?brand=${brand.slug}&gamme=${gamme.slug}`}
+      className={cx(
+        'group relative flex flex-col rounded-[1rem] bg-neutral-50 p-2 shadow-[0_0_0_1px_rgba(31,29,27,0.07)] transition-[box-shadow,translate] duration-500 ease-osmo hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(31,29,27,0.07),0_1.75rem_3rem_-1.75rem_rgba(31,29,27,0.4)]',
+        className,
+      )}
+    >
+      <span style={artTheme('paper', brand.color)} className="relative block aspect-[16/10] overflow-hidden rounded-[0.7rem]">
+        <span aria-hidden="true" className="absolute inset-0 opacity-[0.07]" style={{ ...grid, backgroundSize: '8% 12.8%' }} />
+        <ProductArt
+          type={gamme.art}
+          className="absolute inset-[14%] m-auto transition-transform duration-700 ease-osmo group-hover:scale-[1.08] group-hover:-rotate-2"
+        />
+        <span className="absolute top-2.5 start-2.5 flex h-8 items-center rounded-[0.4rem] bg-white px-2.5 shadow-[0_0_0_1px_rgba(31,29,27,0.06)]">
+          <BrandLogo brand={brand} className="h-[calc(0.95rem*var(--logo-f))] w-auto max-w-[5.5rem]" />
+        </span>
+        <span className="absolute end-3 bottom-3 rounded-[0.3rem] bg-neutral-800 px-2 py-1.5 font-mono text-[0.68rem] leading-none text-neutral-100 uppercase">
+          {list.length === 1 ? t('bt.product1') : t('bt.products', { n: num(list.length) })}
+        </span>
+      </span>
+
+      <span className="flex flex-1 flex-col px-2 pt-4 pb-1.5">
+        <span className="eyebrow text-neutral-500">{t('g.label')} · {categoryList.map((c) => l(c.title)).join(', ')}</span>
+        <span className="display mt-3 block text-[1.9rem] leading-none tracking-[-0.04em]">
+          <bdi>{l(gamme.name)}</bdi>
+        </span>
+        <span className="mt-3 block max-w-[28em] text-[0.95rem] leading-snug text-neutral-550">{l(gamme.summary)}</span>
+        <span className="mt-auto flex items-center justify-between gap-3 pt-6">
+          <span className="text-[0.92rem] font-medium tracking-[-0.01em]">{t('g.view')}</span>
+          <ArrowChip className="bg-neutral-200 group-hover:bg-volt" />
+        </span>
+      </span>
+    </TLink>
+  )
+}
+
 /** Brand tile — dark frame around the white logo plate, like the cards on the home wheel. */
 export function BrandTile({ brand, hidden = false, className = '', ...props }) {
-  const count = productsByBrand(brand.slug).length
+  const count = gammesByBrand(brand.slug).length
   const { t, l } = useI18n()
   return (
     <TLink
@@ -123,7 +168,7 @@ export function BrandTile({ brand, hidden = false, className = '', ...props }) {
       </span>
       <span className="mx-2.5 mt-5 mb-1.5 flex justify-between border-t border-neutral-600 pt-3 font-mono text-[0.72rem] text-neutral-500 uppercase">
         <span>{t('bt.since', { year: brand.founded })}</span>
-        <span>{count === 1 ? t('bt.product1') : t('bt.products', { n: count })}</span>
+        <span>{count === 1 ? t('bt.gamme1') : t('bt.gammes', { n: count })}</span>
       </span>
     </TLink>
   )

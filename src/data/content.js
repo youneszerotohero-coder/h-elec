@@ -2,13 +2,13 @@
 // so the client's real details (name, numbers, brands, contact) can be swapped without touching components.
 
 export const site = {
-  name: 'Voltis', // placeholder company name
-  legalName: 'Voltis Distribution',
+  name: 'H ELEC',
+  legalName: 'SARL H ELEC',
   tagline: { en: 'Electrical equipment for professionals', fr: 'Matériel électrique pour les professionnels', ar: 'معدّات كهربائية للمحترفين' },
   phone: '+00 (0) 00 00 00 00',
   phoneHref: 'tel:+000000000000',
   whatsappHref: 'https://wa.me/000000000000',
-  email: 'contact@voltis.example',
+  email: 'contact@h-elec.example',
   address: [
     { en: 'Industrial Zone, Lot 00', fr: 'Zone industrielle, lot 00', ar: 'المنطقة الصناعية، القطعة 00' },
     { en: 'Your City, Country', fr: 'Votre ville, pays', ar: 'مدينتك، البلد' },
@@ -291,7 +291,7 @@ export const categories = [
       { en: 'Charging stations', fr: 'Stations de recharge', ar: 'محطات الشحن' },
       { en: 'Accessories', fr: 'Accessoires', ar: 'ملحقات' },
     ],
-    theme: 'blue',
+    theme: 'red',
     badge: NEW,
   },
 ]

@@ -63,7 +63,7 @@ export function LangDropdown({ onBeforeChange, className = '' }) {
               >
                 <span>{LANGS[code].label}</span>
                 {code === lang ? (
-                  <span className="size-1.5 rounded-full bg-volt shadow-[0_0_0_3px_rgba(255,212,0,0.2)]" />
+                  <span className="size-1.5 rounded-full bg-volt shadow-[0_0_0_3px_rgba(240,168,32,0.2)]" />
                 ) : (
                   <span className="font-mono text-[0.7rem] text-neutral-500">{LANGS[code].short}</span>
                 )}

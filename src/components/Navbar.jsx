@@ -148,11 +148,11 @@ export default function Navbar() {
               aria-label={t('nav.home', { name: site.name })}
               className="absolute top-1/2 left-1/2 flex h-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center px-2"
             >
-              <span className="block text-[1.7rem] [transition:translate_0.6s_var(--ease-osmo),opacity_0.3s_var(--ease-osmo)_0.15s] scrolled:translate-y-3 scrolled:opacity-0">
-                <Wordmark />
+              <span className="block text-[1.4rem] [transition:translate_0.6s_var(--ease-osmo),opacity_0.3s_var(--ease-osmo)_0.15s] scrolled:translate-y-3 scrolled:opacity-0">
+                <Wordmark compact />
               </span>
-              <span className="absolute inset-0 flex -translate-y-3 items-center justify-center text-volt opacity-0 [transition:translate_0.6s_var(--ease-osmo),opacity_0.3s_var(--ease-osmo)_0.15s] scrolled:translate-y-0 scrolled:opacity-100">
-                <LogoMark className="size-7" />
+              <span className="absolute inset-0 flex -translate-y-3 items-center justify-center text-neutral-100 opacity-0 [transition:translate_0.6s_var(--ease-osmo),opacity_0.3s_var(--ease-osmo)_0.15s] scrolled:translate-y-0 scrolled:opacity-100">
+                <LogoMark className="size-8" />
               </span>
             </a>
 
@@ -303,7 +303,7 @@ function QuotePromo({ onQuote }) {
   const { t } = useI18n()
   const cards = [
     { art: 'breaker', theme: 'light', rot: -9, x: '-38%' },
-    { art: 'bulb', theme: 'blue', rot: 7, x: '38%' },
+    { art: 'bulb', theme: 'red', rot: 7, x: '38%' },
     { art: 'socket', theme: 'volt', rot: -1, x: '0%' },
   ]
   return (
