@@ -56,6 +56,14 @@
   --animate-spin-slow: spin 14s linear infinite;
 }
 
+/* Hero wheel controls: the brand name rises in when the active card changes */
+@keyframes ticker-in {
+  from {
+    transform: translateY(105%);
+    opacity: 0;
+  }
+}
+
 @keyframes current-flow {
   to {
     stroke-dashoffset: -0.06;

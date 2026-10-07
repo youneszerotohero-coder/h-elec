@@ -69,6 +69,17 @@ export default function About() {
           </p>
         </div>
 
+        <div className="mt-[clamp(2.5rem,5vw,4.5rem)] grid gap-8 lg:grid-cols-12">
+          <div data-reveal className="flex items-baseline gap-3 self-start border-t border-neutral-400 pt-5 lg:col-span-3 lg:me-8">
+            <span className="eyebrow text-neutral-550">{t('about.since')}</span>
+            <span className="display text-[clamp(2.4rem,3.6vw,4rem)] leading-[0.8] tracking-[-0.05em] text-spark">1994</span>
+          </div>
+          <div className="grid gap-x-10 gap-y-6 text-[clamp(1.05rem,1.15vw,1.3rem)] leading-[1.55] tracking-[-0.01em] text-neutral-600 md:grid-cols-2 lg:col-span-9">
+            <p data-reveal className="max-w-[34em] border-t border-neutral-400 pt-5">{t('about.p1')}</p>
+            <p data-reveal className="max-w-[34em] border-t border-neutral-400 pt-5">{t('about.p2')}</p>
+          </div>
+        </div>
+
         <div className="mt-[clamp(4rem,9vw,8rem)] grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (
             <div key={s.value} data-reveal className="flex flex-col border-t border-neutral-400 pt-5">

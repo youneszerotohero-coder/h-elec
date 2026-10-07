@@ -1,53 +1,61 @@
+import { useId } from 'react'
 import { cx } from '../lib/cx'
 
-// SARL H ELEC — the client's logo, lightly modernised: same red roof, stacked name and gold underline,
-// with a softened roof, a heavy geometric sans for "ELEC" and a rounded bar. Letters take currentColor,
-// so the logo works on the dark navbar/footer and on light backgrounds alike.
+// H ELEC — redrawn flat from the client's chrome logo: the same big "H", red lightning bolt and the
+// cable that loops around it to a plug, minus the bevels and gloss. The "H" takes currentColor, so the
+// logo works on the dark navbar/footer and on light backgrounds alike; the red is always --color-spark.
 
-function Roof({ className = '' }) {
+const H = 'M11 7h12v17h18V7h12v48H41V35H23V55H11z'
+const BOLT = 'M42 5.5 L24 34.5 L32 33 L21.5 58.5 L40.5 27.5 L32.8 28.8 Z'
+const CORD = 'M27 37.5 C10 38 1 43.5 4.8 48 C9.5 53 33 51 49 42.8'
+
+/** Square mark: the "H", the bolt through it and the cable-and-plug swoosh. */
+export function LogoMark({ className = '' }) {
+  const id = useId()
   return (
-    <svg viewBox="0 0 120 22" preserveAspectRatio="none" aria-hidden="true" className={cx('block overflow-visible', className)}>
-      <path d="M3 20 L60 2.5 L117 20 Z" fill="var(--color-spark)" stroke="var(--color-spark)" strokeWidth="3" strokeLinejoin="round" />
+    <svg viewBox="0 0 64 64" aria-hidden="true" className={cx('overflow-visible', className)}>
+      <defs>
+        {/* The bolt and cable cut a thin gap into the "H", so they read as passing in front of it */}
+        <mask id={`${id}-cut`} maskUnits="userSpaceOnUse" x="-8" y="-8" width="80" height="80">
+          <rect x="-8" y="-8" width="80" height="80" fill="#fff" />
+          <path d={BOLT} stroke="#000" strokeWidth="5" strokeLinejoin="round" />
+          <path d={CORD} fill="none" stroke="#000" strokeWidth="5.6" />
+        </mask>
+      </defs>
+      <path d={H} fill="currentColor" mask={`url(#${id}-cut)`} />
+      <g fill="var(--color-spark)">
+        <path d={CORD} fill="none" stroke="var(--color-spark)" strokeWidth="2.6" strokeLinecap="round" />
+        <g transform="translate(49.3 42.6) rotate(-27)">
+          <path d="M-1.5 -1.3 L2.6 -3.4 V3.4 L-1.5 1.3 Z" />
+          <rect x="2.2" y="-4.6" width="6.4" height="9.2" rx="1.6" />
+          <rect x="8" y="-3.2" width="4.6" height="1.7" rx="0.85" fill="currentColor" />
+          <rect x="8" y="1.5" width="4.6" height="1.7" rx="0.85" fill="currentColor" />
+        </g>
+      </g>
+      <path d={BOLT} fill="var(--color-spark)" />
     </svg>
   )
 }
 
-const Bar = ({ className = '' }) => <span aria-hidden="true" className={cx('block rounded-full bg-volt', className)} />
-
 /**
- * Full lockup. `compact` drops "Sarl" and sets "H ELEC" on one line — for tight spots like the navbar.
- * Size it with font-size: "ELEC" is 1em tall-ish.
+ * Full lockup: the mark beside "HELEC" (red "H", in a slanted wide sans like the original).
+ * `compact` drops the caption under the name — for tight spots like the navbar. Size it with font-size.
  */
 export function Wordmark({ compact = false, className = '' }) {
   return (
     <span
       dir="ltr" // a Latin wordmark: never mirror its letters in RTL
       role="img"
-      aria-label="SARL H ELEC"
-      className={cx('inline-flex w-max flex-col items-stretch leading-none select-none', className)}
+      aria-label="H ELEC"
+      className={cx('inline-flex w-max items-center gap-[0.3em] leading-none select-none', className)}
     >
-      <Roof className="-mx-[0.14em] h-[0.34em] w-[calc(100%+0.28em)]" />
-      {!compact && (
-        <span aria-hidden="true" className="mt-[0.1em] text-center text-[0.34em] font-[640] tracking-[0.04em]">
-          Sarl H
+      <LogoMark className="size-[1.5em] shrink-0" />
+      <span aria-hidden="true" className="flex flex-col">
+        <span className="-skew-x-[9deg] font-[860] tracking-[-0.01em] [font-stretch:125%]">
+          <span className="text-spark">H</span>ELEC
         </span>
-      )}
-      <span aria-hidden="true" className={cx('text-center font-[820] tracking-[-0.03em] [font-stretch:116%]', compact ? 'mt-[0.1em]' : 'mt-[0.02em]')}>
-        {compact && <span className="me-[0.18em]">H</span>}
-        ELEC
+        {!compact && <span className="mt-[0.34em] font-mono text-[0.26em] font-medium tracking-[0.16em] uppercase opacity-55">Sarl · Est. 1994</span>}
       </span>
-      <Bar className="-mx-[0.14em] mt-[0.1em] h-[0.1em] w-[calc(100%+0.28em)]" />
     </span>
-  )
-}
-
-/** Square mark: the roof, an "H" and the gold bar. Used where the full name doesn't fit. */
-export function LogoMark({ className = '' }) {
-  return (
-    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
-      <path d="M3.5 12 L16 4.5 L28.5 12 Z" fill="var(--color-spark)" stroke="var(--color-spark)" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M9.5 14.5h3.4v4.2h6.2v-4.2h3.4v10h-3.4v-3.1h-6.2v3.1H9.5z" fill="currentColor" />
-      <rect x="5" y="26.5" width="22" height="2.6" rx="1.3" fill="var(--color-volt)" />
-    </svg>
   )
 }

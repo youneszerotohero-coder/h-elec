@@ -42,24 +42,40 @@ export const ui = {
   'stock.order': { en: 'On order · 5–7 days', fr: 'Sur commande · 5–7 jours', ar: 'حسب الطلب · 5–7 أيام' },
 
   // ── Home: hero ──────────────────────────────────────────────
-  'hero.words1': { en: ['Power', 'Supply'], fr: ['Le', 'courant'], ar: ['طاقة', 'موثوقة'] },
-  'hero.words2': { en: ['Built', 'for', 'Pros'], fr: ['des', 'pros'], ar: ['للمحترفين'] },
-  'hero.sr': { en: 'Power supply, built for pros', fr: 'Le courant des pros', ar: 'طاقة موثوقة للمحترفين' },
+  'hero.badge': { en: 'Electrical equipment & lighting · Algeria', fr: 'Matériel électrique & éclairage · Algérie', ar: 'معدّات كهربائية وإنارة · الجزائر' },
+  'hero.words1': { en: ['Powering', 'Algeria'], fr: ['Le', 'courant', 'passe'], ar: ['نُنير', 'الجزائر'] },
+  'hero.words2': { en: ['since', '1994'], fr: ['depuis', '1994'], ar: ['منذ', '1994'] },
+  'hero.sr': { en: 'Powering Algeria since 1994', fr: 'Le courant passe depuis 1994', ar: 'نُنير الجزائر منذ 1994' },
   // Plain strings are text, ['word'] is a highlight chip, ['word', 'round'] a rounded chip
   'hero.desc': {
-    en: ['Official distributor of ', ['Legrand', 'round'], ', ', ['Schneider'], ' & ten more brands — wiring, ', ['protection'], ', ', ['cables', 'round'], ' and ', ['lighting'], ' for every job site.'],
-    fr: ['Distributeur officiel de ', ['Legrand', 'round'], ', ', ['Schneider'], ' et dix autres marques — appareillage, ', ['protection'], ', ', ['câbles', 'round'], ' et ', ['éclairage'], ' pour tous vos chantiers.'],
-    ar: ['موزّع معتمد لـ ', ['Legrand', 'round'], ' و', ['Schneider'], ' وعشر علامات أخرى — أجهزة التوصيل، ', ['الحماية'], '، ', ['الكابلات', 'round'], ' و', ['الإنارة'], ' لكل مواقع العمل.'],
+    en: ['Electrical equipment and ', ['lighting', 'round'], ' solutions, imported and distributed across Algeria — official partner of ', ['Legrand'], ', ', ['Schneider', 'round'], ' and the leading national and international brands.'],
+    fr: ['Matériel électrique et solutions d’', ['éclairage', 'round'], ', importés et distribués partout en Algérie — partenaire officiel de ', ['Legrand'], ', ', ['Schneider', 'round'], ' et des grandes marques nationales et internationales.'],
+    ar: ['معدّات كهربائية وحلول ', ['الإنارة', 'round'], '، نستوردها ونوزّعها في كامل الجزائر — شريك معتمد لـ ', ['Legrand'], ' و', ['Schneider', 'round'], ' وكبرى العلامات الوطنية والدولية.'],
   },
+  'hero.catalogue': { en: 'Explore the catalogue', fr: 'Explorer le catalogue', ar: 'تصفّح الكتالوج' },
+  'hero.brands': { en: 'Our brands', fr: 'Nos marques', ar: 'علاماتنا' },
+  'hero.prev': { en: 'Previous brand', fr: 'Marque précédente', ar: 'العلامة السابقة' },
+  'hero.next': { en: 'Next brand', fr: 'Marque suivante', ar: 'العلامة التالية' },
 
   // ── Home: about ─────────────────────────────────────────────
-  'about.eyebrow': { en: 'Who we are', fr: 'Qui sommes-nous', ar: 'من نحن' },
+  'about.eyebrow': { en: 'Who are we?', fr: 'Qui sommes-nous ?', ar: 'من نحن؟' },
   // '[art]' and '[bolt]' mark the inline pictograms
   'about.statement': {
-    en: ["For more than fifteen years we've supplied electricians, contractors and industrial sites with ", '[art]', ' genuine equipment from the brands they trust — in stock, fairly priced ', '[bolt]', ' and delivered on time.'],
-    fr: ['Depuis plus de quinze ans, nous fournissons électriciens, installateurs et sites industriels en ', '[art]', ' matériel authentique des marques qu’ils connaissent — en stock, au juste prix ', '[bolt]', ' et livré à temps.'],
-    ar: ['منذ أكثر من خمسة عشر عامًا، نزوّد الكهربائيين والمقاولين والمواقع الصناعية بـ', '[art]', ' معدّات أصلية من العلامات التي يثقون بها — متوفرة في المخزون، بأسعار عادلة ', '[bolt]', ' وتُسلَّم في موعدها.'],
+    en: ['Since 1994, our company has specialised in importing and distributing ', '[art]', ' electrical equipment and lighting solutions ', '[bolt]', ' in Algeria.'],
+    fr: ['Depuis 1994, notre société est spécialisée dans l’importation et la distribution de ', '[art]', ' matériel électrique et de solutions d’éclairage ', '[bolt]', ' en Algérie.'],
+    ar: ['منذ عام 1994، تتخصّص شركتنا في استيراد وتوزيع ', '[art]', ' المعدّات الكهربائية وحلول الإنارة ', '[bolt]', ' في الجزائر.'],
   },
+  'about.p1': {
+    en: 'Over more than 30 years of expertise, we have built a solid knowledge of the sector and established lasting partnerships with major national and international brands, which we represent and distribute.',
+    fr: 'Au fil de plus de 30 années d’expertise, nous avons développé une solide connaissance du secteur et établi des partenariats durables avec de grandes marques nationales et internationales, dont nous assurons la représentation et la distribution.',
+    ar: 'على مدى أكثر من 30 عامًا من الخبرة، اكتسبنا معرفة متينة بالقطاع وأقمنا شراكات دائمة مع كبرى العلامات الوطنية والدولية، التي نتولّى تمثيلها وتوزيعها.',
+  },
+  'about.p2': {
+    en: 'Our goal is to offer our customers reliable, high-performance products suited to their needs, while guaranteeing a professional, quality service.',
+    fr: 'Notre objectif est de proposer à nos clients des produits fiables, performants et adaptés à leurs besoins, tout en leur garantissant un service professionnel et de qualité.',
+    ar: 'هدفنا أن نقدّم لعملائنا منتجات موثوقة وعالية الأداء تلائم احتياجاتهم، مع ضمان خدمة احترافية وعالية الجودة.',
+  },
+  'about.since': { en: 'Est.', fr: 'Depuis', ar: 'منذ' },
 
   // ── Home: products ──────────────────────────────────────────
   'cat.eyebrow': { en: 'Products', fr: 'Produits', ar: 'المنتجات' },

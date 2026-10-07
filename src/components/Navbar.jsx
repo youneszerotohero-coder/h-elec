@@ -115,7 +115,7 @@ export default function Navbar() {
       <div data-nav-intro className="relative mx-auto flex max-w-[1760px] justify-center px-2 pt-2 md:px-5 md:pt-5">
         <nav
           aria-label="Main"
-          className="pointer-events-auto relative w-full max-w-[42rem] text-neutral-200 transition-[max-width] delay-200 duration-900 ease-osmo nav-open:max-w-full nav-open:delay-0 nav-open:duration-600"
+          className="pointer-events-auto relative w-full max-w-[60rem] text-neutral-200 transition-[max-width] delay-200 duration-900 ease-osmo nav-open:max-w-full nav-open:delay-0 nav-open:duration-600"
         >
           {/* Background */}
           <div aria-hidden="true" className="absolute inset-0 transition-[inset] duration-600 ease-osmo scrolled:inset-[0.1875rem]">

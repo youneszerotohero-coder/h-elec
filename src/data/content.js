@@ -300,6 +300,12 @@ export const categoryBySlug = (slug) => categories.find((c) => c.slug === slug)
 
 export const stats = [
   {
+    value: 30,
+    suffix: '+',
+    label: { en: 'Years of expertise', fr: 'Années d’expertise', ar: 'سنة من الخبرة' },
+    note: { en: 'Importing and distributing since 1994', fr: 'Importation et distribution depuis 1994', ar: 'في الاستيراد والتوزيع منذ 1994' },
+  },
+  {
     value: 12,
     suffix: '+',
     label: { en: 'Official brands', fr: 'Marques officielles', ar: 'علامات معتمدة' },
@@ -310,12 +316,6 @@ export const stats = [
     suffix: '+',
     label: { en: 'References in stock', fr: 'Références en stock', ar: 'مرجع في المخزون' },
     note: { en: 'Ready to ship from our warehouse', fr: 'Prêtes à partir de notre entrepôt', ar: 'جاهزة للشحن من مستودعنا' },
-  },
-  {
-    value: 24,
-    suffix: { en: 'h', fr: 'h', ar: ' ساعة' },
-    label: { en: 'Quote turnaround', fr: 'Délai de devis', ar: 'مدة إعداد العرض' },
-    note: { en: 'Detailed pricing, on working days', fr: 'Chiffrage détaillé, jours ouvrés', ar: 'تسعير مفصّل في أيام العمل' },
   },
   {
     value: 1200,
